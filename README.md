@@ -14,4 +14,4 @@ The downloadable resume is `Thanos_Restas_CV.pdf`. `Profile.pdf` is local refere
 
 ## Deployment
 
-GitHub Pages publishes the root of the `main` branch at https://thanosrestas.github.io/. Push updates to `main` to deploy. `.nojekyll` enables plain static publishing. The repository is private; the website is public.
+GitHub Pages publishes the root of the `main` branch at https://thanosrestas.github.io/. Push updates to `main` to deploy. `.nojekyll` enables plain static publishing. Both the repository and the website are public. The previous portfolio is preserved in the private archived `ThanosRestas/site-archive` repository.
