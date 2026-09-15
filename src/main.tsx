@@ -36,7 +36,7 @@ function Listing({ personal }: { personal: boolean }) {
   return <>
     <section className="intro">
       <p className="eyebrow">{personal ? 'EXPERIMENTS & EXPLORATIONS' : 'THANOS RESTAS / SELECTED WORK'}</p>
-      <h1>{personal ? <>Made out of<br /><em>curiosity.</em></> : <>Practical tools.<br /><em>Immersive experiences.</em></>}</h1>
+      <h1>{personal ? <>Made out of<br /><em>curiosity.</em></> : <>From systems<br /><em>to immersive worlds.</em></>}</h1>
       <p>{personal ? 'Games, prototypes, and creative coding. A collection of personal projects, including my university thesis.' : 'Software engineer building enterprise platforms, desktop tools, and experiences across augmented and virtual reality.'}</p>
     </section>
     <div className="section-heading"><h2>{personal ? 'Personal projects' : 'Professional projects'}</h2><span>{String(projects.length).padStart(2, '0')} PROJECTS</span></div>
@@ -104,7 +104,7 @@ function App() {
       <a href="#contact">Contact ↗</a>
     </nav></header>
     <main id="main">{projectId !== null ? <ProjectPage id={projectId} /> : page === 'resume' ? <Resume /> : <Listing personal={page === 'personal'} />}</main>
-    <footer id="contact"><div><p className="eyebrow">GET IN TOUCH</p><h2>Let’s start a conversation.</h2></div><div className="contact-links"><a href="mailto:thanosre@gmail.com">thanosre@gmail.com ↗</a><a href="https://www.linkedin.com/in/thanosrestas/">LinkedIn ↗</a></div><p className="copyright">© {new Date().getFullYear()} Thanos Restas · Thessaloniki, Greece</p></footer>
+    <footer id="contact"><div><p className="eyebrow">GET IN TOUCH</p><h2>Let’s start a conversation.</h2></div><div className="contact-links"><a href="mailto:thanosre@gmail.com" aria-label="Email Thanos Restas at thanosre@gmail.com">Email ↗</a><a href="https://www.linkedin.com/in/thanosrestas/">LinkedIn ↗</a></div><p className="copyright">© {new Date().getFullYear()} Thanos Restas · Thessaloniki, Greece</p></footer>
   </>;
 }
 
