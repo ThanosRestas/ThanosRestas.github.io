@@ -9,6 +9,13 @@ const allProjects = [...professionalProjects, ...personalProjects];
 const projectUrl = (project: Project) => `index.html?project=${encodeURIComponent(project.id)}`;
 
 function Artwork({ project, index }: { project: Project; index: number }) {
+  if (project.image) {
+    return <div className="art art-image">
+      <img src={project.image} alt={project.imageAlt ?? `${project.title} project image`} loading="lazy" />
+      <span className="art-number">{String(index + 1).padStart(2, '0')}</span>
+    </div>;
+  }
+
   return <div className="art" role="img" aria-label={`${project.title} — placeholder artwork`}>
     <span className="art-number">{String(index + 1).padStart(2, '0')}</span>
     <span className="art-label">Image forthcoming</span>

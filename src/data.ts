@@ -5,6 +5,8 @@ export type Project = {
   tech: string[];
   overview: string;
   contributions: string[];
+  image?: string;
+  imageAlt?: string;
   company?: string;
   dates?: string;
   repo?: string;

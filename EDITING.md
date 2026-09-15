@@ -14,6 +14,27 @@ For example, to add a language to the Proficient line:
 { label: 'Proficient', items: ['C#', 'Java', 'JavaScript', 'TypeScript'] },
 ```
 
+## Change a project image
+
+1. Put the image file inside `public/project-images`. Use a short lowercase name such as `ignite.jpg`, `theasis.png`, or `pong.webp`.
+2. Press `Ctrl+P`, type `src/data.ts`, and press Enter.
+3. Find the project you want to update and add `image` plus `imageAlt` inside its `{ ... }` block.
+
+For example:
+
+```ts
+{
+  id: 'theasis',
+  title: 'Theasis',
+  image: 'project-images/theasis.jpg',
+  imageAlt: 'Screenshot from Theasis showing the browser FPS environment',
+  category: 'University thesis · Web game',
+  ...
+}
+```
+
+Use `.jpg`, `.png`, or `.webp`. Wide screenshots are fine; the site crops them into square tiles, so keep the main subject near the center of the image. If a project has no `image`, the existing placeholder artwork remains visible.
+
 ## See and check your edits
 
 - Press `Ctrl+Shift+P`, choose **Tasks: Run Task**, then **Portfolio: Live preview**. Open `http://127.0.0.1:5180/index.html?page=resume`. Saving a file refreshes this preview. You can also press `F5` to open the resume in Edge after starting the live preview.
@@ -28,7 +49,8 @@ If the editor shows missing package errors, close the previews, open VS Code's t
 | What you want to change | File |
 | --- | --- |
 | Resume Skills entries and labels | `src/resumeSkills.ts` |
-| Project titles, descriptions, technologies, and order | `src/data.ts` |
+| Project titles, descriptions, technologies, images, and order | `src/data.ts` |
+| Project image files | `public/project-images` |
 | Home headlines, intro text, footer, and other resume text | `src/main.tsx` |
 | Colors, spacing, and mobile layout | `src/styles.css` |
 | Downloadable CV | `public/Thanos_Restas_CV.pdf` |

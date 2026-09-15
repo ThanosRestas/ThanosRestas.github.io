@@ -17,4 +17,10 @@
 .resume-project h4{margin-top:0}
 @media(max-width:760px){.resume-project-grid{grid-template-columns:1fr}}
 @media(max-width:560px){.resume-project{padding:16px}}
+
+.art-image{background:#d7d9cf}
+.art-image:before,.art-image:after{display:none}
+.art-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.art-image .art-number{color:white;text-shadow:0 1px 12px rgba(0,0,0,.45)}
+.card:hover .art-image img{transform:scale(1.04)}
 .resume-project-grid .resume-project:first-of-type{margin-top:0}
