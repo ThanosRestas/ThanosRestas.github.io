@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { professionalProjects, personalProjects, type Project } from './data';
+import { resumeSkills } from './resumeSkills';
 import './styles.css';
 
 const params = new URLSearchParams(window.location.search);
@@ -85,7 +86,7 @@ function Resume() {
         <div className="job resume-card"><h3>Software Engineer Intern · CERTH</h3><p className="metadata">July 2017 – August 2017 · Thessaloniki, Greece</p><Bullets items={['Explored 2D WebGL development.', 'Implemented the Singleton design pattern to manage the state of scene objects.', 'Experimented with Unity and procedural mesh generation.']} /></div>
       </section>
       <section className="resume-section"><h2>Education</h2><div className="resume-card"><h3>Ionian University</h3><p>BS, Informatics · Humanistic Informatics<br />Corfu, Greece</p><p>Thesis: <a href="index.html?project=theasis">Theasis — a first-person shooter for the web using BabylonJS ↗</a></p></div></section>
-      <section className="resume-section"><h2>Skills</h2><div className="resume-card"><p><strong>Proficient:</strong> C#, Java, JavaScript<br /><strong>Familiar:</strong> C++, Python</p><p>.NET, WPF, XAML, Unity, Mendix, PostgreSQL, SQL, Docker, Git, Visual Studio, Postman, Bash</p></div></section>
+      <section className="resume-section"><h2>Skills</h2><div className="resume-card"><p>{resumeSkills.groups.map((group, index) => <React.Fragment key={index}><strong>{group.label}:</strong> {group.items.join(', ')}{index < resumeSkills.groups.length - 1 && <br />}</React.Fragment>)}</p><p>{resumeSkills.technologies.join(', ')}</p></div></section>
       <section className="resume-section"><h2>Publications</h2><div className="resume-card"><p>A Collaborative AR/VR Platform for Social Manufacturing</p></div></section>
     </article>
   </>;

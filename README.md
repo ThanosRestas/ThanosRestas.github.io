@@ -6,6 +6,10 @@ Thanos Restas' portfolio rebuilt with React, TypeScript, and Vite. The professio
 
 Requires Node.js 20.18 or newer. Run `npm ci`, `npm run typecheck`, and `npm run build`. Use `npm run preview -- --port 4173` to review the production build at `http://127.0.0.1:4173/`. The build is in `dist/`; Vite uses relative asset paths so it works at a repository subpath as well as a host root.
 
+## Edit it yourself
+
+Open this folder in VS Code and follow [EDITING.md](EDITING.md). The on-site Skills entries are in `src/resumeSkills.ts`, and the repository includes VS Code tasks for live preview, TypeScript checks, and a production build.
+
 ## GitHub Pages later
 
 Add a GitHub remote and push `main` when ready. In the repository settings, set Pages' build source to **GitHub Actions**. The workflow in `.github/workflows/pages.yml` installs dependencies, checks TypeScript, builds `dist/`, and deploys that directory on a push to `main` (or a manual run).
