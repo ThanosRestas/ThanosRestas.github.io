@@ -1,0 +1,7 @@
+{
+  "type": "static",
+  "framework": "vite",
+  "build_command": "npm ci && npm run build",
+  "output_dir": "dist",
+  "entrypoint": "dist/index.html"
+}
