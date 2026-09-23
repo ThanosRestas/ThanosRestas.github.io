@@ -10,12 +10,12 @@ Requires Node.js 20.18 or newer. Run `npm ci`, `npm run typecheck`, and `npm run
 
 Open this folder in VS Code and follow [EDITING.md](EDITING.md). The on-site Skills entries are in `src/resumeSkills.ts`, and the repository includes VS Code tasks for live preview, TypeScript checks, and a production build.
 
-## GitHub Pages later
+## GitHub Pages
 
-Add a GitHub remote and push `main` when ready. In the repository settings, set Pages' build source to **GitHub Actions**. The workflow in `.github/workflows/pages.yml` installs dependencies, checks TypeScript, builds `dist/`, and deploys that directory on a push to `main` (or a manual run).
+The production site is published at [thanosrestas.github.io](https://thanosrestas.github.io/) from [ThanosRestas/ThanosRestas.github.io](https://github.com/ThanosRestas/ThanosRestas.github.io). The workflow in `.github/workflows/pages.yml` installs dependencies, checks TypeScript, builds `dist/`, and deploys that directory on every push to `main` or a manual run.
 
 ## Sites later
 
 `.openai/hosting.json` records a static Vite build and points to `dist/index.html`. When ready to use Sites, create or connect a Sites project, build the committed source, and save and deploy a version from the `dist/` output. Add the Sites-provided `project_id` to the hosting metadata only after project creation; no ID is prefilled here.
 
-This repository starts with no remote and no deployment.
+GitHub Pages is the active deployment target. Sites remains an optional future hosting path.

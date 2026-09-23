@@ -8,10 +8,13 @@ const params = new URLSearchParams(window.location.search);
 const allProjects = [...professionalProjects, ...personalProjects];
 const projectUrl = (project: Project) => `index.html?project=${encodeURIComponent(project.id)}`;
 
-function Artwork({ project, index }: { project: Project; index: number }) {
-  if (project.image) {
-    return <div className="art art-image">
-      <img src={project.image} alt={project.imageAlt ?? `${project.title} project image`} loading="lazy" />
+function Artwork({ project, index, thumbnail = false }: { project: Project; index: number; thumbnail?: boolean }) {
+  const image = thumbnail ? project.thumbnail ?? project.image : project.image;
+  const detailMedia = !thumbnail && Boolean(project.thumbnail && project.image);
+
+  if (image) {
+    return <div className={`art art-image${detailMedia ? ' art-detail-media' : ''}`}>
+      <img src={image} alt={project.imageAlt ?? `${project.title} project image`} loading={thumbnail ? 'lazy' : 'eager'} />
       <span className="art-number">{String(index + 1).padStart(2, '0')}</span>
     </div>;
   }
@@ -32,7 +35,7 @@ function Bullets({ items }: { items: string[] }) {
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   return <a className="card" href={projectUrl(project)}>
-    <Artwork project={project} index={index} />
+    <Artwork project={project} index={index} thumbnail />
     <h3>{project.title} <span aria-hidden="true">↗</span></h3>
     <p>{project.company ? `${project.company} / ${project.category}` : project.category}</p>
   </a>;
@@ -45,7 +48,7 @@ function Listing({ personal }: { personal: boolean }) {
     <section className="intro">
       <p className="eyebrow">{personal ? 'EXPERIMENTS & EXPLORATIONS' : 'THANOS RESTAS / SELECTED WORK'}</p>
       <h1>{personal ? <>Made out of<br /><em>curiosity.</em></> : <>From systems<br /><em>to immersive worlds.</em></>}</h1>
-      <p>{personal ? 'Games, prototypes, and creative coding. A collection of personal projects, including my university thesis.' : 'Software engineer building enterprise platforms, desktop tools, and experiences across augmented and virtual reality.'}</p>
+      <p>{personal ? 'Games, prototypes and creative coding. A collection of personal projects.' : 'Enterprise platforms, industrial tools and experiences across AR and VR.'}</p>
     </section>
     <div className="section-heading"><h2>{personal ? 'Personal projects' : 'Professional projects'}</h2><span>{String(projects.length).padStart(2, '0')} PROJECTS</span></div>
     <section className="grid" aria-label={`${personal ? 'Personal' : 'Professional'} projects`}>
@@ -72,6 +75,7 @@ function ProjectPage({ id }: { id: string }) {
         <h2>Overview</h2><p>{project.overview}</p>
         {project.contributions.length > 0 && <><h2>{personal ? 'Project details' : 'My contributions'}</h2><Bullets items={project.contributions} /></>}
         {project.tech.length > 0 && <><h2>Technologies</h2><div><Tags items={project.tech} /></div></>}
+        {project.liveDemo && <p><a className="button" href={project.liveDemo} target="_blank" rel="noreferrer">Play live demo ↗</a></p>}
         {project.repo && <p><a className="button" href={`https://github.com/ThanosRestas/${encodeURIComponent(project.repo)}`}>View source on GitHub ↗</a></p>}
       </article>
     </div>
@@ -94,7 +98,7 @@ function Resume() {
       </section>
       <section className="resume-section"><h2>Education</h2><div className="resume-card"><h3>Ionian University</h3><p>BS, Informatics · Humanistic Informatics<br />Corfu, Greece</p><p>Thesis: <a href="index.html?project=theasis">Theasis — a first-person shooter for the web using BabylonJS ↗</a></p></div></section>
       <section className="resume-section"><h2>Skills</h2><div className="resume-card"><p>{resumeSkills.groups.map((group, index) => <React.Fragment key={index}><strong>{group.label}:</strong> {group.items.join(', ')}{index < resumeSkills.groups.length - 1 && <br />}</React.Fragment>)}</p><p>{resumeSkills.technologies.join(', ')}</p></div></section>
-      <section className="resume-section"><h2>Publications</h2><div className="resume-card"><p>A Collaborative AR/VR Platform for Social Manufacturing</p></div></section>
+      <section className="resume-section"><h2>Publications</h2><div className="resume-card"><p><a href="https://www.sciencedirect.com/science/article/pii/S1877050924011761" target="_blank" rel="noreferrer">A Collaborative AR/VR Platform for Social Manufacturing ↗</a></p></div></section>
     </article>
   </>;
 }

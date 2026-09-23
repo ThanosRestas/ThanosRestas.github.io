@@ -13,11 +13,11 @@ type ResumeSkills = {
 
 export const resumeSkills: ResumeSkills = {
   groups: [
-    { label: 'Proficient', items: ['C#', 'Java', 'JavaScript'] },
+    { label: 'Working Experience', items: ['C#', 'Java', 'JavaScript'] },
     { label: 'Familiar', items: ['C++', 'Python'] },
+    { label: 'Other', items: ['.NET', 'WPF', 'XAML', 'Unity', 'Mendix', 'PostgreSQL', 'SQL',
+    'Docker', 'Git', 'Visual Studio', 'Postman', 'Bash', 'WSL',] },
   ],
   technologies: [
-    '.NET', 'WPF', 'XAML', 'Unity', 'Mendix', 'PostgreSQL', 'SQL',
-    'Docker', 'Git', 'Visual Studio', 'Postman', 'Bash',
   ],
 };
